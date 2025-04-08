@@ -1,0 +1,14 @@
+name: Pull Code Regularly
+
+on:
+  schedule:
+    - cron: '0 2 * * *'  # 每天凌晨 2 点执行
+
+jobs:
+  pull-code:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Pull latest code
+        run: git pull origin main
